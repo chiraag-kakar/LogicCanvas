@@ -9,7 +9,7 @@
   "summary": "Software Engineer focused on building scalable, serverless distributed systems for global fintech products. Experienced designing and operating backend platforms that support high-concurrency, event-driven workflows on AWS with managed, async services. Comfortable owning systems end-to-end architecture, development, observability, and reliability.",
   "cv_link": "https://drive.google.com/file/d/1QZwBAC9qPKj33dXXLj5XvWYwwFo69I9Z/view?usp=sharing",
   "contact": {
-    "email": "ck2222@cse.jgec.ac.in",
+    "email": "chiraag.kakar.22@gmail.com",
     "phone": "+91 7407592026",
     "github": "https://github.com/chiraag-kakar",
     "linkedin": "https://www.linkedin.com/in/chiraag-kakar",
@@ -18,10 +18,10 @@
   "form": {
     "endpoint": "",
     "method": "POST",
-    "interests": ["Interested in hiring", "Some chit-chat"],
+    "interests": ["Hiring Opportunity", "Technical Discussion"],
     "helper_messages": [
       "Interested in hiring you for a backend/platform role. Could we schedule a 20-min intro this week?",
-      "Would love to chat about reliability, serverless patterns, and async architectures."
+      "Would like to discuss technical architecture, serverless patterns, and engineering best practices."
     ]
   },
   "quick_facts": [
@@ -136,6 +136,56 @@
       "impact": "Shipped cross-platform experiences with automated coverage.",
       "tech": ["Flutter", "GetX", "FastAPI", "Testing"],
       "links": []
+    }
+  ],
+    "personal_projects": [
+    {
+      "title": "Async Task Scheduler",
+      "description": "Distributed task scheduler with priority queues and automatic retries",
+      "tech": ["Python", "Redis", "Celery", "FastAPI"],
+      "github": "https://github.com/yourusername/async-scheduler",
+      "demo": "https://scheduler-demo.yoursite.com",
+      "status": "active",
+      "stars": 342,
+      "forks": 45
+    },
+    {
+      "title": "Serverless Blog Engine",
+      "description": "JAMstack blog with serverless comments and analytics",
+      "tech": ["Next.js", "AWS Lambda", "DynamoDB", "S3"],
+      "github": "https://github.com/yourusername/serverless-blog",
+      "demo": "https://blog.yoursite.com",
+      "status": "active",
+      "stars": 128,
+      "forks": 23
+    },
+    {
+      "title": "API Rate Limiter",
+      "description": "Distributed rate limiting middleware using token bucket algorithm",
+      "tech": ["Go", "Redis", "gRPC"],
+      "github": "https://github.com/yourusername/rate-limiter",
+      "status": "active",
+      "stars": 567,
+      "forks": 89
+    },
+    {
+      "title": "Log Aggregator",
+      "description": "Lightweight log aggregation service with real-time search",
+      "tech": ["Python", "Elasticsearch", "Kafka", "Docker"],
+      "github": "https://github.com/yourusername/log-aggregator",
+      "status": "archived",
+      "stars": 234,
+      "forks": 34
+    },
+    {
+      "title": "Webhook Relay",
+      "description": "Reliable webhook delivery service with automatic retries",
+      "tech": ["Node.js", "PostgreSQL", "Redis", "Docker"],
+      "github": "https://github.com/yourusername/webhook-relay",
+      "demo": "https://webhooks.yoursite.com",
+      "status": "active",
+      "stars": 421,
+      "forks": 67
     }
   ],
   "achievements": [
