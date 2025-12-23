@@ -1,0 +1,165 @@
+{
+  "name": "Chiraag Kakar",
+  "title": "Backend & Platform Engineer",
+  "headline": "Backend systems that don't blink.",
+  "subheadline": "Software Engineer building scalable, serverless platforms on AWS using Node.js, TypeScript, and Java.",
+  "availability": "Available for backend/platform roles",
+  "location": "India (IST)",
+  "languages_spoken": ["English (Native/Bilingual)", "Hindi (Native/Bilingual)"],
+  "summary": "Software Engineer focused on building scalable, serverless distributed systems for global fintech products. Experienced designing and operating backend platforms that support high-concurrency, event-driven workflows on AWS with managed, async services. Comfortable owning systems end-to-end architecture, development, observability, and reliability.",
+  "cv_link": "https://drive.google.com/file/d/1QZwBAC9qPKj33dXXLj5XvWYwwFo69I9Z/view?usp=sharing",
+  "contact": {
+    "email": "ck2222@cse.jgec.ac.in",
+    "phone": "+91 7407592026",
+    "github": "https://github.com/chiraag-kakar",
+    "linkedin": "https://www.linkedin.com/in/chiraag-kakar",
+    "portfolio": "https://chiraag-kakar.github.io"
+  },
+  "form": {
+    "endpoint": "",
+    "method": "POST",
+    "interests": ["Interested in hiring", "Some chit-chat"],
+    "helper_messages": [
+      "Interested in hiring you for a backend/platform role. Could we schedule a 20-min intro this week?",
+      "Would love to chat about reliability, serverless patterns, and async architectures."
+    ]
+  },
+  "quick_facts": [
+    "AWS: Lambda, SQS, ECS, DynamoDB, SES",
+    "Node.js / TypeScript / Java",
+    "Vue.js (Quasar) for dashboards",
+    "Event-driven & async processing",
+    "TDD, CI/CD, RCA & reliability"
+  ],
+  "about": "I design, build, and operate backend-heavy platforms that power global digital commerce. I favor event-driven architectures, serverless and managed services, and pragmatic engineering that balances speed with reliability. My work reduces operational toil, improves latency, and delivers measurable impact for users and business stakeholders.",
+  "skills": [
+    {
+      "name": "Backend",
+      "items": ["Node.js", "TypeScript", "Java", "Express/LambdaJS", "API design", "Async/event-driven"]
+    },
+    {
+      "name": "Cloud & Infra",
+      "items": ["AWS (Lambda, SQS, ECS, DynamoDB, SES)", "Terraform modules", "Serverless architectures", "CI/CD (TeamCity)", "Observability (Grafana, Kibana)"]
+    },
+    {
+      "name": "Frontend",
+      "items": ["Vue.js (Quasar)", "Responsive dashboards", "Component design"]
+    },
+    {
+      "name": "Data & Caching",
+      "items": ["DynamoDB", "Redis", "Query/index tuning", "Caching strategies"]
+    },
+    {
+      "name": "Quality & Reliability",
+      "items": ["TDD", "Automated testing (Postman → TeamCity)", "SonarQube Quality Gates", "Structured RCAs"]
+    },
+    {
+      "name": "Languages",
+      "items": ["C++", "JavaScript/TypeScript", "Python"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer (Full Stack)",
+      "company": "Coda Payments",
+      "period": "June 2022 – Present",
+      "location": "Singapore (Remote)",
+      "bullets": [
+        "Owned and scaled Publisher Integrations and Supply Automation platforms for onboarding and lifecycle of digital content across 300+ publishers.",
+        "Integrated 50+ gaming titles ($5M+ monthly TPV) via reusable internal APIs with controlled access, cutting cross-team integration effort by 70%.",
+        "Delivered Item Code Campaigns (100K+ redeemable codes), automated reporting pipelines, and multi-country/payment-channel flows; enhanced transaction monitoring, SKU, Product Page, and User Management modules.",
+        "Built automation for pricing, product-page creation, multi-currency conversions, scheduler-driven data sync (Lambda + SQS), Slack alerts—reducing operational workflows by 30–50% and manual effort by ~40%.",
+        "Optimized backend performance through query/index tuning, caching, and async processing; improved p95 latency by 30–40% and sped up internal workflows.",
+        "Strengthened quality via TDD, automated testing (Postman → TeamCity), SonarQube Quality Gates, targeted tech-debt reduction, RCAs, and CI/CD modernization."
+      ],
+      "tech": ["TypeScript", "Node.js/LambdaJS", "Vue.js (Quasar)", "Redis", "AWS (DynamoDB, Lambda, SQS, SES, ECS)", "Java"]
+    },
+    {
+      "role": "Software Development Engineer Intern (DevOps)",
+      "company": "HyperVerge Inc.",
+      "period": "Jan 2022 – May 2022",
+      "location": "Bengaluru, India",
+      "bullets": [
+        "Published reusable Terraform modules and configured/deployed CI runners on AWS for multiple ASGs.",
+        "Automated reconciliation in the MasterDB team to migrate services from on-prem to cloud."
+      ],
+      "tech": ["Terraform", "AWS", "CI runners", "DevOps"]
+    },
+    {
+      "role": "Software Consultant",
+      "company": "Sequoia Capital",
+      "period": "Sep 2021 – Jan 2022",
+      "location": "Remote",
+      "bullets": [
+        "Built responsive widgets for Pathfinder mobile and web apps using Flutter with GetX for state management.",
+        "Designed and implemented Profile and Support backend services with FastAPI and automated tests."
+      ],
+      "tech": ["Flutter", "GetX", "FastAPI", "Automated testing"]
+    },
+    {
+      "role": "Software Engineer Intern (Full Stack)",
+      "company": "Economize.cloud",
+      "period": "May 2021 – Jul 2021",
+      "location": "Bengaluru, India",
+      "bullets": [
+        "Developed REST APIs in Golang plus Vue components interacting with Google Cloud SDK.",
+        "Listed Committed Use Discounts and VM Disks to help users optimize cloud expenses."
+      ],
+      "tech": ["Golang", "Vue.js", "Google Cloud", "Redis"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Publisher Integrations Platform",
+      "summary": "Unified onboarding and lifecycle management for 300+ publishers and 50+ gaming titles, with controlled-access internal APIs and async workflows.",
+      "impact": "70% reduction in cross-team integration effort; powers $5M+ monthly TPV.",
+      "tech": ["TypeScript", "Node.js", "AWS Lambda", "SQS", "DynamoDB", "Vue (Quasar)"],
+      "links": []
+    },
+    {
+      "title": "Item Code Campaigns & Automation",
+      "summary": "End-to-end campaign engine supporting 100K+ redeemable codes, scheduler-driven data sync, Slack alerts, and multi-currency price ops.",
+      "impact": "30–50% cut in operational workflows; ~40% reduction in manual config effort.",
+      "tech": ["TypeScript", "Lambda", "SQS", "Redis", "Automation"],
+      "links": []
+    },
+    {
+      "title": "Terraform Module (CI Runners)",
+      "summary": "Reusable AWS Terraform module to provision CI runners across ASGs with standardized config.",
+      "impact": "4k+ downloads; streamlined provisioning and reuse.",
+      "tech": ["Terraform", "AWS", "CI/CD"],
+      "links": []
+    },
+    {
+      "title": "Pathfinder Widgets & Services",
+      "summary": "Responsive Flutter widgets and FastAPI services for Profile and Support in Pathfinder apps.",
+      "impact": "Shipped cross-platform experiences with automated coverage.",
+      "tech": ["Flutter", "GetX", "FastAPI", "Testing"],
+      "links": []
+    }
+  ],
+  "achievements": [
+    "Udacity - AWS Machine Learning Scholarship",
+    "Among the Top 10 Contributors (Mr. Techie) @ GS CUP",
+    "Semi Finalist @ Techgig Code Gladiators 2021",
+    "Google DevFest 2019 Attendee",
+    "Google Code Jam 2020 Participation",
+    "Google Hash Code 2020",
+    "Google Kickstart Round H 2019",
+    "Data Analysis on Cancer Disease Using ML (Publication)",
+    "Operations & Program Lead – JGEC Winter of Code (600+ participants)"
+  ],
+  "education": {
+    "school": "Jalpaiguri Government Engineering College",
+    "degree": "B.Tech, Computer Science & Engineering",
+    "period": "July 2018 – June 2022",
+    "gpa": "CGPA: 8.5 / 10.0",
+    "location": "Jalpaiguri, West Bengal, India"
+  },
+  "footer_links": [
+    { "label": "GitHub", "url": "https://github.com/chiraag-kakar" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/chiraag-kakar" },
+    { "label": "Portfolio", "url": "https://chiraag-kakar.github.io" }
+  ]
+}
+
