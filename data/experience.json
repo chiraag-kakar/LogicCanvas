@@ -1,0 +1,107 @@
+[
+  {
+    "role": "Software Engineer (Full Stack)",
+    "company": "Coda Payments",
+    "period": "June 2022 – Present",
+    "location": "Singapore (Remote)",
+    "summary": "Leading backend platform development for a global fintech processing millions of daily transactions. Focused on building scalable, serverless architectures that power digital commerce across 300+ publishers and 50+ gaming titles.",
+    "achievements": {
+      "Platform & Scale": [
+        "Owned and scaled Publisher Integrations and Supply Automation platforms for onboarding and lifecycle of digital content across 300+ publishers.",
+        "Integrated 50+ gaming titles ($5M+ monthly TPV) via reusable internal APIs with controlled access, cutting cross-team integration effort by 70%."
+      ],
+      "Product Delivery": [
+        "Delivered Item Code Campaigns (100K+ redeemable codes), automated reporting pipelines, and multi-country/payment-channel flows; enhanced transaction monitoring, SKU, Product Page, and User Management modules.",
+        "Built automation for pricing, product-page creation, multi-currency conversions, scheduler-driven data sync (Lambda + SQS), Slack alerts—reducing operational workflows by 30–50% and manual effort by ~40%."
+      ],
+      "Performance & Quality": [
+        "Optimized backend performance through query/index tuning, caching, and async processing; improved p95 latency by 30–40% and sped up internal workflows.",
+        "Strengthened quality via TDD, automated testing (Postman → TeamCity), SonarQube Quality Gates, targeted tech-debt reduction, RCAs, and CI/CD modernization."
+      ]
+    },
+    "projects": [
+      {
+        "title": "Publisher Integrations Platform",
+        "summary": "Unified onboarding and lifecycle management for 300+ publishers and 50+ gaming titles, with controlled-access internal APIs and async workflows.",
+        "impact": "70% reduction in cross-team integration effort; powers $5M+ monthly TPV.",
+        "tech": ["TypeScript", "Node.js", "AWS Lambda", "SQS", "DynamoDB", "Vue (Quasar)"],
+        "icon": "integration"
+      },
+      {
+        "title": "Item Code Campaigns & Automation",
+        "summary": "End-to-end campaign engine supporting 100K+ redeemable codes, scheduler-driven data sync, Slack alerts, and multi-currency price ops.",
+        "impact": "30–50% cut in operational workflows; ~40% reduction in manual config effort.",
+        "tech": ["TypeScript", "Lambda", "SQS", "Redis", "Automation"],
+        "icon": "automation"
+      }
+    ],
+    "tech": ["TypeScript", "Node.js/LambdaJS", "Vue.js (Quasar)", "Redis", "AWS (DynamoDB, Lambda, SQS, SES, ECS)", "Java"]
+  },
+  {
+    "role": "Software Development Engineer Intern (DevOps)",
+    "company": "HyperVerge Inc.",
+    "period": "Jan 2022 – May 2022",
+    "location": "Bengaluru, India",
+    "summary": "Contributed to infrastructure automation and cloud migration initiatives, building reusable infrastructure components and streamlining deployment processes.",
+    "achievements": {
+      "Infrastructure as Code": [
+        "Published reusable Terraform modules and configured/deployed CI runners on AWS for multiple ASGs."
+      ],
+      "Cloud Migration": [
+        "Automated reconciliation in the MasterDB team to migrate services from on-prem to cloud."
+      ]
+    },
+    "projects": [
+      {
+        "title": "Terraform Module (CI Runners)",
+        "summary": "Reusable AWS Terraform module to provision CI runners across ASGs with standardized config.",
+        "impact": "4k+ downloads; streamlined provisioning and reuse.",
+        "tech": ["Terraform", "AWS", "CI/CD"],
+        "icon": "infrastructure"
+      }
+    ],
+    "tech": ["Terraform", "AWS", "CI runners", "DevOps"]
+  },
+  {
+    "role": "Software Consultant",
+    "company": "Sequoia Capital",
+    "period": "Sep 2021 – Jan 2022",
+    "location": "Remote",
+    "summary": "Developed cross-platform mobile and web applications for Pathfinder, focusing on responsive design and robust backend services.",
+    "achievements": {
+      "Frontend Development": [
+        "Built responsive widgets for Pathfinder mobile and web apps using Flutter with GetX for state management."
+      ],
+      "Backend Services": [
+        "Designed and implemented Profile and Support backend services with FastAPI and automated tests."
+      ]
+    },
+    "projects": [
+      {
+        "title": "Pathfinder Widgets & Services",
+        "summary": "Responsive Flutter widgets and FastAPI services for Profile and Support in Pathfinder apps.",
+        "impact": "Shipped cross-platform experiences with automated coverage.",
+        "tech": ["Flutter", "GetX", "FastAPI", "Testing"],
+        "icon": "mobile"
+      }
+    ],
+    "tech": ["Flutter", "GetX", "FastAPI", "Automated testing"]
+  },
+  {
+    "role": "Software Engineer Intern (Full Stack)",
+    "company": "Economize.cloud",
+    "period": "May 2021 – Jul 2021",
+    "location": "Bengaluru, India",
+    "summary": "Built cloud cost optimization tools helping users manage and reduce their cloud infrastructure expenses through intelligent analytics.",
+    "achievements": {
+      "API Development": [
+        "Developed REST APIs in Golang plus Vue components interacting with Google Cloud SDK."
+      ],
+      "Cost Optimization": [
+        "Listed Committed Use Discounts and VM Disks to help users optimize cloud expenses."
+      ]
+    },
+    "tech": ["Golang", "Vue.js", "Google Cloud", "Redis"]
+  }
+]
+

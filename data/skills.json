@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Backend",
+    "items": ["Node.js", "TypeScript", "Java", "Express/LambdaJS", "API design", "Async/event-driven"]
+  },
+  {
+    "name": "Cloud & Infra",
+    "items": ["AWS (Lambda, SQS, ECS, DynamoDB, SES)", "Terraform modules", "Serverless architectures", "CI/CD (TeamCity)", "Observability (Grafana, Kibana)"]
+  },
+  {
+    "name": "Frontend",
+    "items": ["Vue.js (Quasar)", "Responsive dashboards", "Component design"]
+  },
+  {
+    "name": "Data & Caching",
+    "items": ["DynamoDB", "Redis", "Query/index tuning", "Caching strategies"]
+  },
+  {
+    "name": "Quality & Reliability",
+    "items": ["TDD", "Automated testing (Postman → TeamCity)", "SonarQube Quality Gates", "Structured RCAs"]
+  },
+  {
+    "name": "Languages",
+    "items": ["C++", "JavaScript/TypeScript", "Python"]
+  }
+]
+

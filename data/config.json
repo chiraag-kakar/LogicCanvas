@@ -1,0 +1,42 @@
+{
+  "navigation": {
+    "items": [
+      { "label": "About", "href": "#about" },
+      { "label": "Skills", "href": "#skills" },
+      { "label": "Experience", "href": "#experience" },
+      { "label": "Personal Work", "href": "#personal-projects" },
+      { "label": "Education", "href": "#education" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  },
+  "sections": {
+    "about": { "title": "About" },
+    "skills": { "title": "Skills" },
+    "experience": { "title": "Experience" },
+    "personal_projects": {
+      "title": "Personal Projects & Open Source",
+      "subtitle": "Side projects, experiments, and open-source contributions"
+    },
+    "education": { "title": "Education" },
+    "contact": { "title": "Contact" }
+  },
+  "buttons": {
+    "hero_primary": "Get in touch",
+    "hero_secondary": "See work",
+    "hero_download": "Download CV",
+    "header_cta": "Email me",
+    "contact_submit": "Send Message",
+    "form_helper": "I typically respond within 24 hours",
+    "form_title": "Send a Message"
+  },
+  "project_filters": {
+    "all": "All",
+    "active": "Active",
+    "archived": "Archived"
+  },
+  "features": {
+    "images_enabled": false,
+    "terminal_enabled": true
+  }
+}
+

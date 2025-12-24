@@ -11,7 +11,6 @@
   <meta name="author" content="Chiraag Kakar" />
   <meta name="keywords" content="Backend Engineer, Platform Engineer, AWS, Serverless, Node.js, TypeScript, Java, Software Engineer" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2322d3ee;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23a78bfa;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Cpath d='M30 35h40v5H30zM30 45h40v5H30zM30 55h30v5H30z' fill='url(%23g)'/%3E%3Ccircle cx='75' cy='70' r='8' fill='%2322d3ee'/%3E%3Cpath d='M73 70h4M75 68v4' stroke='%230f172a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="preload" href="data.json" as="fetch" crossorigin>
   <title>Chiraag Kakar | Backend & Platform Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +31,7 @@
       color: #e2e8f0;
       min-height: 100vh;
     }
-    .fonts-loaded body {
+    body.fonts-loaded {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
     body.theme-light {
@@ -410,40 +409,263 @@
       background: #1e293b;
       border-color: rgba(14, 165, 233, 0.3);
     }
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .metric-card {
-      background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(167, 139, 250, 0.1));
+    .project-icon {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(167, 139, 250, 0.15));
       border: 1px solid rgba(34, 211, 238, 0.2);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      text-align: center;
+    }
+    .project-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: #22d3ee;
+    }
+    body.theme-light .project-icon {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(99, 102, 241, 0.15));
+      border-color: rgba(14, 165, 233, 0.3);
+    }
+    body.theme-light .project-icon svg {
+      stroke: #0ea5e9;
+    }
+    .experience-card {
+      position: relative;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .metric-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(34, 211, 238, 0.2);
+    .experience-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
-    .metric-value {
-      font-size: 2.5rem;
-      font-weight: 700;
+    .experience-timeline {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 640px) {
+      .experience-timeline {
+        padding-left: 2.5rem;
+      }
+    }
+    .experience-timeline::before {
+      content: "";
+      position: absolute;
+      left: 1.25rem;
+      top: 0;
+      bottom: -2rem;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(34, 211, 238, 0.4), rgba(34, 211, 238, 0.1));
+    }
+    .experience-timeline:last-child::before {
+      display: none;
+    }
+    .experience-marker {
+      position: absolute;
+      left: 0.75rem;
+      top: 0.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
       background: linear-gradient(135deg, #22d3ee, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
+      border: 4px solid #0f172a;
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2), 0 4px 12px rgba(34, 211, 238, 0.3);
+      z-index: 2;
     }
-    .metric-label {
+    body.theme-light .experience-marker {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      border-color: #f8fafc;
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2), 0 4px 12px rgba(14, 165, 233, 0.3);
+    }
+    body.theme-light .experience-timeline::before {
+      background: linear-gradient(180deg, rgba(14, 165, 233, 0.4), rgba(14, 165, 233, 0.1));
+    }
+    .experience-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .experience-role {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      line-height: 1.2;
+    }
+    .experience-company {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #22d3ee;
+      line-height: 1.3;
+    }
+    .experience-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
       font-size: 0.875rem;
       color: #94a3b8;
+      margin-top: 0.25rem;
+    }
+    .experience-summary {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+    }
+    .experience-hero-image {
+      width: 100%;
+      height: 16rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(167, 139, 250, 0.1));
+    }
+    .experience-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .experience-card:hover .experience-hero-image img {
+      transform: scale(1.05);
+    }
+    .experience-achievements-container {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .achievement-category {
+      margin-bottom: 2rem;
+    }
+    .achievement-category:last-child {
+      margin-bottom: 0;
+    }
+    .achievement-category-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #22d3ee;
+      margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    body.theme-light .metric-label {
-      color: #64748b;
+    body.theme-light .achievement-category-title {
+      color: #0ea5e9;
+    }
+    .experience-achievements {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    @media (max-width: 640px) {
+      .experience-achievements {
+        grid-template-columns: 1fr;
+      }
+      .experience-hero-image {
+        height: 12rem;
+      }
+    }
+    .experience-projects {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.theme-light .experience-projects {
+      border-top-color: rgba(0, 0, 0, 0.1);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .achievement-card {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(167, 139, 250, 0.08));
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+    }
+    .achievement-card:hover {
+      border-color: rgba(34, 211, 238, 0.4);
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(167, 139, 250, 0.12));
+      transform: translateY(-2px);
+    }
+    .achievement-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #22d3ee;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .achievement-description {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+    body.theme-light .experience-role {
+      color: #0f172a;
+    }
+    body.theme-light .experience-company {
+      color: #0ea5e9;
+    }
+    body.theme-light .experience-summary {
+      color: #1e293b;
+    }
+    body.theme-light .achievement-card {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(99, 102, 241, 0.08));
+      border-color: rgba(14, 165, 233, 0.2);
+    }
+    body.theme-light .achievement-card:hover {
+      border-color: rgba(14, 165, 233, 0.4);
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(99, 102, 241, 0.12));
+    }
+    body.theme-light .achievement-title {
+      color: #0ea5e9;
+    }
+    body.theme-light .achievement-description {
+      color: #0f172a;
+    }
+    .experience-narrative {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+    }
+    body.theme-light .experience-narrative {
+      color: #334155;
+    }
+    .experience-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.theme-light .experience-tech {
+      border-top-color: rgba(0, 0, 0, 0.1);
+    }
+    .tech-tag {
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      color: #67e8f9;
+      transition: all 0.2s ease;
+    }
+    .tech-tag:hover {
+      background: rgba(34, 211, 238, 0.15);
+      border-color: rgba(34, 211, 238, 0.3);
+      transform: translateY(-1px);
+    }
+    body.theme-light .tech-tag {
+      background: rgba(14, 165, 233, 0.1);
+      border-color: rgba(14, 165, 233, 0.2);
+      color: #0369a1;
+    }
+    body.theme-light .tech-tag:hover {
+      background: rgba(14, 165, 233, 0.15);
+      border-color: rgba(14, 165, 233, 0.3);
     }
     .skill-bar {
       height: 8px;
@@ -691,24 +913,6 @@
         <h2 class="text-xl font-semibold">About</h2>
       </div>
       <p class="text-slate-300 leading-relaxed" id="about-text" style="min-height: 3rem;"></p>
-      <div class="metrics-grid mt-8">
-        <div class="metric-card">
-          <div class="metric-value" id="metric-tpv">$5M+</div>
-          <div class="metric-label">Monthly TPV</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value" id="metric-latency">6ms</div>
-          <div class="metric-label">Avg Response Time</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value" id="metric-reduction">70%</div>
-          <div class="metric-label">Integration Time ↓</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value" id="metric-ops">8.64M</div>
-          <div class="metric-label">Daily Requests</div>
-        </div>
-      </div>
     </section>
 
     <section id="skills" class="section space-y-6">
@@ -717,60 +921,6 @@
         <h2 class="text-xl font-semibold">Skills</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-4" id="skills-grid" style="min-height: 200px;"></div>
-      <div class="mt-8 grid md:grid-cols-2 gap-4">
-        <div class="glass rounded-xl p-5 border border-slate-800">
-          <div class="text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-            Performance Metrics
-          </div>
-          <div class="space-y-3 text-sm">
-            <div class="flex justify-between">
-              <span class="text-slate-400">Avg RPS</span>
-              <span class="text-cyan-300 font-mono">100 (300 peak)</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-400">Daily Requests</span>
-              <span class="text-cyan-300 font-mono">8.64M</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-400">CSv2 Latency</span>
-              <span class="text-cyan-300 font-mono">6ms avg / 15ms p99</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-400">CSv1 Latency</span>
-              <span class="text-cyan-300 font-mono">30ms avg / 80ms p99</span>
-            </div>
-          </div>
-        </div>
-        <div class="glass rounded-xl p-5 border border-slate-800">
-          <div class="text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-            Scale & Impact
-          </div>
-          <div class="space-y-3 text-sm">
-            <div class="flex justify-between">
-              <span class="text-slate-400">Platform TPV</span>
-              <span class="text-cyan-300 font-mono">$5M+ /month</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-400">Publishers</span>
-              <span class="text-cyan-300 font-mono">300+</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-400">Gaming Titles</span>
-              <span class="text-cyan-300 font-mono">50+</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-400">Integration Time</span>
-              <span class="text-cyan-300 font-mono">↓ 70%</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="experience" class="section space-y-6">
@@ -781,14 +931,7 @@
       <div class="space-y-4" id="experience-list" style="min-height: 300px;"></div>
     </section>
 
-    <section id="projects" class="section space-y-6">
-      <div class="flex items-center gap-2">
-        <div class="h-px w-8 bg-cyan-400"></div>
-        <h2 class="text-xl font-semibold">Professional Projects</h2>
-      </div>
-      <p class="text-sm text-slate-400">Key projects delivered during professional roles</p>
-      <div class="grid md:grid-cols-2 gap-4" id="project-cards" style="min-height: 200px;"></div>
-    </section>
+    <!-- Professional projects are now integrated into the Experience section -->
 
     <section id="personal-projects" class="section space-y-6">
       <div class="flex items-center gap-2">
@@ -869,26 +1012,17 @@
   </button>
   
 
+  <script src="script.js" defer></script>
   <script>
     // Load fonts asynchronously and add class when loaded
-    (function() {
-      if ('fonts' in document) {
-        Promise.all([
-          document.fonts.load('400 1em Inter'),
-          document.fonts.load('500 1em Inter'),
-          document.fonts.load('600 1em Inter'),
-          document.fonts.load('700 1em Inter')
-        ]).then(() => {
-          document.documentElement.classList.add('fonts-loaded');
-        }).catch(() => {
-          document.documentElement.classList.add('fonts-loaded');
-        });
-      } else {
-        document.documentElement.classList.add('fonts-loaded');
-      }
-    })();
+    if ('fonts' in document) {
+      document.fonts.ready.then(() => {
+        document.body.classList.add('fonts-loaded');
+      });
+    } else {
+      setTimeout(() => document.body.classList.add('fonts-loaded'), 100);
+    }
   </script>
-  <script src="script.js" defer></script>
 </body>
 </html>
 

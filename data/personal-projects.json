@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Async Task Scheduler",
+    "description": "Distributed task scheduler with priority queues and automatic retries",
+    "tech": ["Python", "Redis", "Celery", "FastAPI"],
+    "github": "https://github.com/yourusername/async-scheduler",
+    "demo": "https://scheduler-demo.yoursite.com",
+    "status": "active",
+    "stars": 342,
+    "forks": 45,
+    "icon": "scheduler"
+  },
+  {
+    "title": "Serverless Blog Engine",
+    "description": "JAMstack blog with serverless comments and analytics",
+    "tech": ["Next.js", "AWS Lambda", "DynamoDB", "S3"],
+    "github": "https://github.com/yourusername/serverless-blog",
+    "demo": "https://blog.yoursite.com",
+    "status": "active",
+    "stars": 128,
+    "forks": 23,
+    "icon": "blog"
+  },
+  {
+    "title": "API Rate Limiter",
+    "description": "Distributed rate limiting middleware using token bucket algorithm",
+    "tech": ["Go", "Redis", "gRPC"],
+    "github": "https://github.com/yourusername/rate-limiter",
+    "status": "active",
+    "stars": 567,
+    "forks": 89,
+    "icon": "api"
+  },
+  {
+    "title": "Log Aggregator",
+    "description": "Lightweight log aggregation service with real-time search",
+    "tech": ["Python", "Elasticsearch", "Kafka", "Docker"],
+    "github": "https://github.com/yourusername/log-aggregator",
+    "status": "archived",
+    "stars": 234,
+    "forks": 34,
+    "icon": "logs"
+  },
+  {
+    "title": "Webhook Relay",
+    "description": "Reliable webhook delivery service with automatic retries",
+    "tech": ["Node.js", "PostgreSQL", "Redis", "Docker"],
+    "github": "https://github.com/yourusername/webhook-relay",
+    "demo": "https://webhooks.yoursite.com",
+    "status": "active",
+    "stars": 421,
+    "forks": 67,
+    "icon": "webhook"
+  }
+]
+

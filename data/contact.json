@@ -1,0 +1,22 @@
+{
+  "email": "chiraag.kakar.22@gmail.com",
+  "phone": "+91 7407592026",
+  "github": "https://github.com/chiraag-kakar",
+  "linkedin": "https://www.linkedin.com/in/chiraag-kakar",
+  "portfolio": "https://chiraag-kakar.github.io",
+  "form": {
+    "endpoint": "",
+    "method": "POST",
+    "interests": ["Hiring Opportunity", "Technical Discussion"],
+    "helper_messages": [
+      "Interested in hiring you for a backend/platform role. Could we schedule a 20-min intro this week?",
+      "Would like to discuss technical architecture, serverless patterns, and engineering best practices."
+    ]
+  },
+  "footer_links": [
+    { "label": "GitHub", "url": "https://github.com/chiraag-kakar" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/chiraag-kakar" },
+    { "label": "Portfolio", "url": "https://chiraag-kakar.github.io" }
+  ]
+}
+
