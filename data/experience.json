@@ -25,17 +25,20 @@
         "summary": "Unified onboarding and lifecycle management for 300+ publishers and 50+ gaming titles, with controlled-access internal APIs and async workflows.",
         "impact": "70% reduction in cross-team integration effort; powers $5M+ monthly TPV.",
         "tech": ["TypeScript", "Node.js", "AWS Lambda", "SQS", "DynamoDB", "Vue (Quasar)"],
-        "icon": "integration"
+        "icon": "integration",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&q=80"
       },
       {
         "title": "Item Code Campaigns & Automation",
         "summary": "End-to-end campaign engine supporting 100K+ redeemable codes, scheduler-driven data sync, Slack alerts, and multi-currency price ops.",
         "impact": "30–50% cut in operational workflows; ~40% reduction in manual config effort.",
         "tech": ["TypeScript", "Lambda", "SQS", "Redis", "Automation"],
-        "icon": "automation"
+        "icon": "automation",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80"
       }
     ],
-    "tech": ["TypeScript", "Node.js/LambdaJS", "Vue.js (Quasar)", "Redis", "AWS (DynamoDB, Lambda, SQS, SES, ECS)", "Java"]
+    "tech": ["TypeScript", "Node.js/LambdaJS", "Vue.js (Quasar)", "Redis", "AWS (DynamoDB, Lambda, SQS, SES, ECS)", "Java"],
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&q=80"
   },
   {
     "role": "Software Development Engineer Intern (DevOps)",
@@ -57,10 +60,12 @@
         "summary": "Reusable AWS Terraform module to provision CI runners across ASGs with standardized config.",
         "impact": "4k+ downloads; streamlined provisioning and reuse.",
         "tech": ["Terraform", "AWS", "CI/CD"],
-        "icon": "infrastructure"
+        "icon": "infrastructure",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&q=80"
       }
     ],
-    "tech": ["Terraform", "AWS", "CI runners", "DevOps"]
+    "tech": ["Terraform", "AWS", "CI runners", "DevOps"],
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop&q=80"
   },
   {
     "role": "Software Consultant",
@@ -82,10 +87,12 @@
         "summary": "Responsive Flutter widgets and FastAPI services for Profile and Support in Pathfinder apps.",
         "impact": "Shipped cross-platform experiences with automated coverage.",
         "tech": ["Flutter", "GetX", "FastAPI", "Testing"],
-        "icon": "mobile"
+        "icon": "mobile",
+        "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&q=80"
       }
     ],
-    "tech": ["Flutter", "GetX", "FastAPI", "Automated testing"]
+    "tech": ["Flutter", "GetX", "FastAPI", "Automated testing"],
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop&q=80"
   },
   {
     "role": "Software Engineer Intern (Full Stack)",
@@ -101,7 +108,8 @@
         "Listed Committed Use Discounts and VM Disks to help users optimize cloud expenses."
       ]
     },
-    "tech": ["Golang", "Vue.js", "Google Cloud", "Redis"]
+    "tech": ["Golang", "Vue.js", "Google Cloud", "Redis"],
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=600&fit=crop&q=80"
   }
 ]
 

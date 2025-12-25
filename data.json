@@ -1,0 +1,5 @@
+{
+  "_comment": "Main data file - references modular data files for better organization",
+  "_structure": "Split into: profile.json, contact.json, skills.json, experience.json, personal-projects.json, education.json, config.json",
+  "_note": "Images are optional - set 'image' field to null or omit to disable. Enable in config.json features.images_enabled"
+}

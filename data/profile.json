@@ -6,7 +6,7 @@
   "availability": "Available for backend/platform roles",
   "location": "India (IST)",
   "languages_spoken": ["English (Native/Bilingual)", "Hindi (Native/Bilingual)"],
-  "summary": "Software Engineer focused on building scalable, serverless distributed systems for global fintech products. Experienced designing and operating backend platforms that support high-concurrency, event-driven workflows on AWS with managed, async services. Comfortable owning systems end-to-end—from architecture and development to observability and reliability. At Coda Payments, I've built platforms that process millions of daily requests with sub-10ms latency, powering significant transaction volumes while reducing integration complexity for engineering teams.",
+  "summary": "Software Engineer building scalable, serverless distributed systems for global fintech products. I design and operate backend platforms supporting high-concurrency, event-driven workflows on AWS. Comfortable owning systems end-to-end—from architecture to observability. At Coda Payments, I've built platforms processing millions of daily requests with sub-10ms latency.",
   "cv_link": "https://drive.google.com/file/d/1QZwBAC9qPKj33dXXLj5XvWYwwFo69I9Z/view?usp=sharing",
   "about": "I design, build, and operate backend-heavy platforms that power global digital commerce. I favor event-driven architectures, serverless and managed services, and pragmatic engineering that balances speed with reliability. My work reduces operational toil, improves latency, and delivers measurable impact for users and business stakeholders.",
   "quick_facts": [
@@ -15,6 +15,7 @@
     "Vue.js (Quasar) for dashboards",
     "Event-driven & async processing",
     "TDD, CI/CD, RCA & reliability"
-  ]
+  ],
+  "github_username": "chiraag-kakar"
 }
 

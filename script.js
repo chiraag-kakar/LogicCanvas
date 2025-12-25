@@ -20,14 +20,16 @@ async function loadPortfolioData() {
   }
 
   try {
-    const [profile, contact, skills, experience, personalProjects, education, configData] = await Promise.all([
+    const [profile, contact, skills, experience, personalProjects, education, configData, githubRepos, publications] = await Promise.all([
       fetch(`${DATA_PATH}/profile.json`).then(r => r.json()),
       fetch(`${DATA_PATH}/contact.json`).then(r => r.json()),
       fetch(`${DATA_PATH}/skills.json`).then(r => r.json()),
       fetch(`${DATA_PATH}/experience.json`).then(r => r.json()),
       fetch(`${DATA_PATH}/personal-projects.json`).then(r => r.json()),
       fetch(`${DATA_PATH}/education.json`).then(r => r.json()),
-      fetch(`${DATA_PATH}/config.json`).then(r => r.json())
+      fetch(`${DATA_PATH}/config.json`).then(r => r.json()),
+      fetch(`${DATA_PATH}/github-repos.json`).then(r => r.json()).catch(() => []),
+      fetch(`${DATA_PATH}/publications.json`).then(r => r.json()).catch(() => [])
     ]);
 
     config = configData;
@@ -38,6 +40,8 @@ async function loadPortfolioData() {
       experience,
       personal_projects: personalProjects,
       education,
+      github_repos: githubRepos,
+      publications,
       ...config
     };
 
@@ -71,9 +75,13 @@ function renderNavigation(data) {
   const desktopNav = document.getElementById('nav-links');
   const mobileNav = document.getElementById('mobile-nav-content');
   
-  // Update header name
-  const headerName = document.querySelector('header .font-semibold');
+  // Update header name (preserve link if it exists)
+  const headerName = document.querySelector('header a.font-semibold, header .font-semibold');
   if (headerName && data.name) {
+    // If it's a link, update text while preserving href
+    if (headerName.tagName === 'A' && !headerName.getAttribute('href')) {
+      headerName.setAttribute('href', '#hero');
+    }
     headerName.textContent = data.name;
   }
   
@@ -117,6 +125,7 @@ function renderSectionTitles(data) {
     '#experience h2': sections.experience?.title,
     '#personal-projects h2': sections.personal_projects?.title,
     '#personal-projects p': sections.personal_projects?.subtitle,
+    '#publications h2': sections.publications?.title,
     '#education h2': sections.education?.title,
     '#contact h2': sections.contact?.title
   };
@@ -146,14 +155,20 @@ function renderHero(data) {
   const updates = {
     'headline': data.headline,
     'subheadline': data.subheadline,
-    'availability': data.availability,
-    'summary': data.summary
+    'availability': data.availability
   };
   
   Object.entries(updates).forEach(([id, text]) => {
     const el = document.getElementById(id);
     if (el && text) el.textContent = text;
   });
+  
+  // Render summary content (heading removed for cleaner design)
+  const summaryEl = document.getElementById('summary');
+  if (summaryEl) {
+    const combinedText = data.summary || data.about || '';
+    summaryEl.textContent = combinedText;
+  }
   
   const cvLink = document.getElementById('hero-download');
   if (cvLink && data.cv_link) {
@@ -186,12 +201,14 @@ function renderHero(data) {
 }
 
 /**
- * Render about section
+ * Render about section (now merged with summary in hero)
  */
 function renderAbout(data) {
-  const aboutText = document.getElementById('about-text');
-  if (aboutText && data.about) {
-    aboutText.textContent = data.about;
+  // About section is now merged with summary in hero section
+  // Hide the separate about section to avoid redundancy
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    aboutSection.style.display = 'none';
   }
 }
 
@@ -456,10 +473,14 @@ function renderPersonalProjects(data) {
       contentDiv.appendChild(stats);
     }
     
-    // Tech stack
+    // Tech stack (support both tech array and languages array from GitHub)
     const tech = document.createElement('div');
     tech.className = 'flex flex-wrap gap-2 text-xs';
-    (proj.tech || []).forEach(t => {
+    const techStack = proj.tech || proj.languages || [];
+    if (proj.language && !techStack.includes(proj.language)) {
+      techStack.unshift(proj.language); // Add primary language first
+    }
+    techStack.forEach(t => {
       const pill = document.createElement('span');
       pill.className = 'px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300';
       pill.textContent = t;
@@ -473,8 +494,8 @@ function renderPersonalProjects(data) {
     if (proj.github) {
       links.appendChild(createLink(proj.github, 'GitHub', 'github'));
     }
-    if (proj.demo) {
-      links.appendChild(createLink(proj.demo, 'Live Demo', 'external'));
+    if (proj.demo || proj.homepage) {
+      links.appendChild(createLink(proj.demo || proj.homepage, 'Live Demo', 'external'));
     }
     if (links.childNodes.length) contentDiv.appendChild(links);
     
@@ -767,33 +788,52 @@ function initNav() {
     }
   });
   
-  // Active nav highlighting
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
+  // Active nav highlighting - highlight section closest to top of viewport
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
   const scrollTopBtn = document.getElementById('scroll-top');
   const progressBar = document.getElementById('progress-bar');
   
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href').replace('#', '');
-            if (href === entry.target.id) {
-              link.classList.add('nav-active');
-            } else {
-              link.classList.remove('nav-active');
-            }
-          });
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 150; // Offset for header
+    let current = '';
+    let minDistance = Infinity;
+    
+    sections.forEach(section => {
+      const offset = section.offsetTop;
+      const height = section.offsetHeight;
+      const distance = Math.abs(scrollPos - offset);
+      
+      // If we've scrolled past the section start, consider it active if it's closest
+      if (scrollPos >= offset - 100 && distance < minDistance) {
+        minDistance = distance;
+        current = section.id;
+      }
+    });
+    
+    // If at top, highlight hero/about
+    if (window.scrollY < 100) {
+      current = 'hero';
+    }
+    
+    // Update nav links - remove all active, then add to current
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      link.classList.remove('nav-active');
+      if (href === current) {
+        link.classList.add('nav-active');
+      }
+    });
+  }
   
-  sections.forEach(sec => observer.observe(sec));
+  // Update on scroll
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  // Initial update
+  updateActiveNav();
   
-  window.addEventListener('scroll', () => {
+  // Throttled scroll handler for better performance
+  let scrollTimeout;
+  function handleScroll() {
     if (window.scrollY > 320) {
       scrollTopBtn?.classList.add('visible');
     } else {
@@ -805,7 +845,17 @@ function initNav() {
       const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
       progressBar.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
     }
-  });
+  }
+  
+  window.addEventListener('scroll', () => {
+    if (!scrollTimeout) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        scrollTimeout = null;
+      });
+      scrollTimeout = true;
+    }
+  }, { passive: true });
   
   scrollTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -877,6 +927,171 @@ function initProjectFilter() {
         }
       });
     });
+  });
+}
+
+/**
+ * Fetch GitHub repository data
+ */
+async function fetchGitHubRepo(repoUrl) {
+  try {
+    const match = repoUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+    if (!match) return null;
+    
+    const [, owner, repo] = match;
+    // Using GitHub API - public repos don't require auth
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
+    
+    const response = await fetch(apiUrl, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    
+    if (!response.ok) {
+      console.warn(`Failed to fetch ${repoUrl}: ${response.status}`);
+      return null;
+    }
+    
+    const data = await response.json();
+    
+    // Extract languages
+    let languages = [];
+    try {
+      const langResponse = await fetch(data.languages_url);
+      if (langResponse.ok) {
+        const langData = await langResponse.json();
+        languages = Object.keys(langData).slice(0, 5); // Top 5 languages
+      }
+    } catch (e) {
+      // Ignore language fetch errors
+    }
+    
+    return {
+      title: data.name,
+      description: data.description || '',
+      stars: data.stargazers_count || 0,
+      forks: data.forks_count || 0,
+      github: data.html_url,
+      homepage: data.homepage,
+      language: data.language,
+      languages: languages,
+      updated: data.updated_at,
+      created: data.created_at,
+      topics: data.topics || [],
+      status: data.archived ? 'archived' : 'active',
+      icon: getIconFromTopics(data.topics) || 'api'
+    };
+  } catch (error) {
+    console.error(`Error fetching GitHub repo ${repoUrl}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Get icon from GitHub topics
+ */
+function getIconFromTopics(topics) {
+  if (!topics || topics.length === 0) return null;
+  const topicMap = {
+    'nodejs': 'api', 'typescript': 'api', 'javascript': 'api',
+    'python': 'scheduler', 'django': 'scheduler', 'flask': 'scheduler',
+    'react': 'mobile', 'vue': 'mobile', 'flutter': 'mobile',
+    'terraform': 'infrastructure', 'kubernetes': 'infrastructure', 'docker': 'infrastructure',
+    'aws': 'infrastructure', 'azure': 'infrastructure', 'gcp': 'infrastructure',
+    'blog': 'blog', 'nextjs': 'blog', 'gatsby': 'blog',
+    'automation': 'automation', 'ci-cd': 'automation'
+  };
+  
+  for (const topic of topics) {
+    if (topicMap[topic.toLowerCase()]) {
+      return topicMap[topic.toLowerCase()];
+    }
+  }
+  return null;
+}
+
+/**
+ * Render GitHub repositories (auto-fetched)
+ */
+async function renderGitHubRepos(data) {
+  if (!data.github_repos || data.github_repos.length === 0) return;
+  
+  const grid = document.getElementById('personal-project-cards');
+  if (!grid) return;
+  
+  // Show loading state
+  const loadingDiv = document.createElement('div');
+  loadingDiv.className = 'col-span-2 text-center text-slate-400 text-sm';
+  loadingDiv.textContent = 'Loading GitHub repositories...';
+  grid.appendChild(loadingDiv);
+  
+  // Fetch all repo data in parallel
+  const repoDataPromises = data.github_repos.map(url => fetchGitHubRepo(url));
+  const repoDataList = await Promise.all(repoDataPromises);
+  
+  // Filter out null results
+  const validRepos = repoDataList.filter(repo => repo !== null);
+  
+  if (validRepos.length === 0) {
+    loadingDiv.remove();
+    return;
+  }
+  
+  // Merge with existing personal projects
+  const allProjects = [...(data.personal_projects || []), ...validRepos];
+  
+  // Remove loading and re-render
+  loadingDiv.remove();
+  renderPersonalProjects({ ...data, personal_projects: allProjects });
+}
+
+/**
+ * Render publications section
+ */
+function renderPublications(data) {
+  const container = document.getElementById('publications-list');
+  if (!container || !data.publications || data.publications.length === 0) {
+    const section = document.getElementById('publications');
+    if (section) section.style.display = 'none';
+    return;
+  }
+  
+  container.innerHTML = '';
+  
+  data.publications.forEach(pub => {
+    const card = document.createElement('div');
+    card.className = 'publication-card glass rounded-xl p-6 border border-slate-800';
+    
+    const header = document.createElement('div');
+    header.className = 'mb-4';
+    header.innerHTML = `
+      <div class="text-xl font-bold text-slate-100 mb-2">${pub.title}</div>
+      <div class="text-sm text-cyan-300 font-medium mb-1">${pub.publisher}${pub.date ? ' · ' + pub.date : ''}</div>
+      ${pub.book ? `<div class="text-sm text-slate-300">${pub.book}</div>` : ''}
+      ${pub.series ? `<div class="text-xs text-slate-400 mt-1">${pub.series}</div>` : ''}
+    `;
+    
+    const description = document.createElement('div');
+    description.className = 'text-sm text-slate-300 leading-relaxed mb-4';
+    description.textContent = pub.description;
+    
+    const link = document.createElement('a');
+    link.href = pub.url;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.className = 'inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 text-sm font-medium';
+    link.innerHTML = `
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+      </svg>
+      Read Publication
+    `;
+    
+    card.appendChild(header);
+    card.appendChild(description);
+    card.appendChild(link);
+    container.appendChild(card);
   });
 }
 
@@ -974,10 +1189,14 @@ async function init() {
     renderAbout(data);
     renderSkills(data);
     renderExperience(data);
-    renderPersonalProjects(data);
     renderEducation(data);
     renderContact(data);
     renderFooter(data);
+    renderPublications(data);
+    
+    // Load GitHub data asynchronously (non-blocking)
+    renderGitHubRepos(data).catch(err => console.error('GitHub repos error:', err));
+    // GitHub stats removed - API not working reliably
     
     // Initialize interactions
     initNav();

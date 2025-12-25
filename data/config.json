@@ -1,10 +1,11 @@
 {
   "navigation": {
     "items": [
-      { "label": "About", "href": "#about" },
+      { "label": "About", "href": "#hero" },
       { "label": "Skills", "href": "#skills" },
       { "label": "Experience", "href": "#experience" },
-      { "label": "Personal Work", "href": "#personal-projects" },
+      { "label": "Projects", "href": "#personal-projects" },
+      { "label": "Publications", "href": "#publications" },
       { "label": "Education", "href": "#education" },
       { "label": "Contact", "href": "#contact" }
     ]
@@ -17,6 +18,7 @@
       "title": "Personal Projects & Open Source",
       "subtitle": "Side projects, experiments, and open-source contributions"
     },
+    "publications": { "title": "Publications" },
     "education": { "title": "Education" },
     "contact": { "title": "Contact" }
   },

@@ -8,7 +8,8 @@
     "status": "active",
     "stars": 342,
     "forks": 45,
-    "icon": "scheduler"
+    "icon": "scheduler",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&q=80"
   },
   {
     "title": "Serverless Blog Engine",
@@ -19,7 +20,8 @@
     "status": "active",
     "stars": 128,
     "forks": 23,
-    "icon": "blog"
+    "icon": "blog",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80"
   },
   {
     "title": "API Rate Limiter",
@@ -29,7 +31,8 @@
     "status": "active",
     "stars": 567,
     "forks": 89,
-    "icon": "api"
+    "icon": "api",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&q=80"
   },
   {
     "title": "Log Aggregator",
@@ -39,7 +42,8 @@
     "status": "archived",
     "stars": 234,
     "forks": 34,
-    "icon": "logs"
+    "icon": "logs",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80"
   },
   {
     "title": "Webhook Relay",
@@ -50,7 +54,8 @@
     "status": "active",
     "stars": 421,
     "forks": 67,
-    "icon": "webhook"
+    "icon": "webhook",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop&q=80"
   }
 ]
 
